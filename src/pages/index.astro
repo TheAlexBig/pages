@@ -65,7 +65,24 @@ const caseStudies = [
       'Consistent technical direction under pressure',
     ],
     tags: 'Architecture · Delivery · Stakeholders · Governance',
-    image: '/work/government.png',
+    image: '/work/government.jpg',
+  },
+  {
+    title: "Ocean's Code (Costa Rica) — CADI on AWS (Salesforce decoupling)",
+    subtitle: 'Spring Boot services + generalized API to reduce Salesforce load',
+    bullets: [
+      'Provided consulting services focused on AWS architecture and Spring Boot development.',
+      'Built CADI: a pipeline/tool that extracts data from Salesforce and stores it in a generalized database layer.',
+      'Exposed the data through a general API so internal consumers could access it without increasing Salesforce API pressure.',
+      'Designed the approach to support scalability and operational reliability as usage grows.',
+    ],
+    outcomes: [
+      'Reduced dependency on direct Salesforce queries for downstream services',
+      'Improved platform scalability by offloading reads to a dedicated datastore/API',
+      'Enabled broader internal access without hitting Salesforce request limits as quickly',
+    ],
+    tags: 'AWS · Spring Boot · Salesforce · Data decoupling · APIs',
+    image: '/work/oceanscode.png',
   },
   {
     title: 'Euronet (epay) — automation, monitoring, and platform migration',
