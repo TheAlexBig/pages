@@ -6,30 +6,109 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 import '../styles/global.css';
 
-const highlights = [
+const pitch = [
+  'Digitalize processes (from messy workflows to trackable systems)',
+  'Design solutions and delivery plans (stories, resources, standards)',
+  'Automate delivery and operations (CI/CD, GitOps, monitoring)',
+];
+
+const credibility = [
+  { strong: 'Product + process', span: 'Built tools that help officers manage cases and workflows (BenchmarkAnalytics).' },
+  { strong: 'Leadership', span: 'Grew from developer → tech lead → architect (requirements → solution → delivery).' },
+  { strong: 'Enterprise DevOps', span: 'Automation and monitoring for large Windows estates + SQL workloads (epay).' },
+  { strong: 'Kubernetes GitOps', span: 'FluxCD-driven deployment workflows and environment automation (Skylight).' },
+];
+
+const timeline = [
   {
-    title: 'DevOps @ Euronet',
-    items: [
-      'Puppet/Hiera/r10k automation (Git-backed deployments, dynamic GitHub App token injection)',
-      'Azure DevOps → GitHub migrations with GitHub Actions + runner hardening (Squid-aware)',
-      'Zabbix Agent 2 automation (SQL Server ODBC checks, discovery rules, foreach calculated items)',
-    ],
+    when: 'Software Developer → Tech Lead → Web Architect',
+    where: 'Applaudo (BenchmarkAnalytics + Government project)',
+    detail:
+      'Started building features for the Benchmark tool and workflow structure, then led teams, and later designed solutions end-to-end as an architect.',
   },
   {
-    title: 'Automation Tooling',
-    items: [
-      'PowerShell + Bash for ActiveBatch audits, Windows service orchestration, log analysis',
-      'Tag-based rollback workflows and secure Git operations (sparse clones, PAT auth)',
-      'SSL workflows with F5 BIG-IP and validation processes',
-    ],
+    when: 'DevOps Engineer',
+    where: 'Euronet (epay)',
+    detail:
+      'Modernized automation and operations: PowerShell tooling, Puppet migrations, Git platform migrations, monitoring automation, and Kubernetes GitOps workflows.',
   },
 ];
 
-const focusAreas = [
-  { k: 'IaC & Config Mgmt', v: 'Puppet · Hiera · r10k · Terraform' },
-  { k: 'CI/CD & GitOps', v: 'GitHub Actions · GitHub Apps · Secure runners' },
-  { k: 'Monitoring', v: 'Zabbix Agent 2 · SQL ODBC checks · foreach KPIs' },
-  { k: 'Security', v: 'AWS KMS · Encryption SDK v3 · TLS/SSL workflows' },
+const caseStudies = [
+  {
+    title: 'BenchmarkAnalytics — case workflow digitalization',
+    subtitle: 'Helping officers manage cases with structure, hierarchy, and history',
+    bullets: [
+      'Built and evolved the Benchmark tool to digitalize cases and processes for officers.',
+      'Worked heavily on hierarchy/structure design and the employment history tracker.',
+      'Delivered features over time, then transitioned into leadership and architecture to scale delivery.',
+    ],
+    outcomes: [
+      'Clearer data structure and workflow consistency',
+      'Better traceability for case-related history',
+      'Faster feature delivery with improved structure',
+    ],
+    tags: 'Product · Workflow Design · Full-stack · Data Structure',
+    image: '/work/benchmark.png',
+  },
+  {
+    title: 'Government project — solution design + vendor validation',
+    subtitle: 'Leading people and ensuring outsourced delivery matched requirements',
+    bullets: [
+      'Designed solutions based on stakeholder requests and translated them into actionable resources/stories.',
+      'Managed people and delivery coordination across parties.',
+      'Reviewed and validated what outsourced teams delivered to ensure it met the intended design.',
+    ],
+    outcomes: [
+      'Reduced ambiguity through clearer requirements and solution plans',
+      'Better alignment between stakeholders and outsourced delivery',
+      'Consistent technical direction under pressure',
+    ],
+    tags: 'Architecture · Delivery · Stakeholders · Governance',
+    image: '/work/government.jpg',
+  },
+  {
+    title: "Ocean's Code (Costa Rica) — CADI on AWS (Salesforce decoupling)",
+    subtitle: 'Spring Boot services + generalized API to reduce Salesforce load',
+    bullets: [
+      'Provided consulting services focused on AWS architecture and Spring Boot development.',
+      'Built CADI: a pipeline/tool that extracts data from Salesforce and stores it in a generalized database layer.',
+      'Exposed the data through a general API so internal consumers could access it without increasing Salesforce API pressure.',
+      'Designed the approach to support scalability and operational reliability as usage grows.',
+    ],
+    outcomes: [
+      'Reduced dependency on direct Salesforce queries for downstream services',
+      'Improved platform scalability by offloading reads to a dedicated datastore/API',
+      'Enabled broader internal access without hitting Salesforce request limits as quickly',
+    ],
+    tags: 'AWS · Spring Boot · Salesforce · Data decoupling · APIs',
+    image: '/work/oceanscode.png',
+  },
+  {
+    title: 'Euronet (epay) — automation, monitoring, and platform migration',
+    subtitle: 'PowerShell automation + Puppet migrations + GitHub standardization + GitOps',
+    bullets: [
+      'Maintained and upgraded PowerShell automation across operational workflows.',
+      'Automated monitoring with Zabbix (Windows + SQL), improving visibility and consistency.',
+      'Migrated projects from Azure/GitLab into GitHub and standardized CI/CD patterns.',
+      'Expanded into Kubernetes delivery workflows using FluxCD (Skylight).',
+    ],
+    outcomes: [
+      'More repeatable operations with less manual work',
+      'Better monitoring coverage and quicker issue visibility',
+      'Cleaner Git platform footprint and standardized pipelines',
+      'More controlled and auditable Kubernetes releases',
+    ],
+    tags: 'DevOps · PowerShell · Puppet · Zabbix · GitHub · FluxCD · Kubernetes',
+    image: '/work/epay.png',
+  },
+];
+
+const processSteps = [
+  { t: 'Discovery', d: 'Understand your workflows, constraints, and what “success” means.' },
+  { t: 'Blueprint', d: 'Propose an architecture + delivery plan (stories, resources, milestones).' },
+  { t: 'Build & automate', d: 'Implement incrementally and remove manual steps early.' },
+  { t: 'Operate', d: 'Monitoring, runbooks, and handoff that your team can maintain.' },
 ];
 ---
 
@@ -38,74 +117,147 @@ const focusAreas = [
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
+
   <body>
     <Header />
 
     <main class="container">
+      <!-- HERO -->
       <section class="hero">
-        <span class="badge">Available for senior DevOps / Platform roles</span>
+        <span class="badge">Consulting mindset · Architecture + DevOps execution</span>
 
         <h1>
-          I build reliable delivery pipelines, secure automation, and monitoring that ops teams can actually live with.
+          I help organizations move their projects into the digital world — by designing clear solutions and building the automation to ship them reliably.
         </h1>
 
         <p>
-          I’m José Valladares — a DevOps Engineer with a strong backend/architecture background.
-          I automate infrastructure, CI/CD, and observability across enterprise environments (Windows + Linux),
-          with a focus on security, repeatability, and clean operational workflows.
+          I’m José Valladares. My background is developer → tech lead → architect, and today I work in DevOps and platform automation (epay),
+          including Git migrations, PowerShell/Puppet automation, Zabbix monitoring, and Kubernetes GitOps with FluxCD (Skylight).
         </p>
 
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px;">
+          {pitch.map((p) => <span class="badge">{p}</span>)}
+        </div>
+
         <div class="cta">
-          <a class="button primary" href="/blog">Read the blog</a>
+          <a class="button primary" href="#work">View work</a>
           <a class="button" href="https://www.linkedin.com/in/josevalladares22526a154/" target="_blank" rel="noreferrer">
             LinkedIn
           </a>
-          <!-- Replace with your GitHub -->
-          <a class="button" href="https://github.com/" target="_blank" rel="noreferrer">
-            GitHub
-          </a>
+          <a class="button" href="mailto:your@email.com">Email</a>
         </div>
       </section>
 
-      <section class="grid" aria-label="Highlights">
-        <div class="card">
-          <h2>What I’m doing lately</h2>
-          {highlights.map((h) => (
-            <div style="margin-top: 12px;">
-              <div class="badge" style="margin-bottom: 10px;">{h.title}</div>
-              <ul class="list">
-                {h.items.map((it) => <li>{it}</li>)}
-              </ul>
+      <!-- WHY ME -->
+      <section class="card" style="margin-top: 18px;">
+        <h2>What you get when you work with me</h2>
+        <p class="small" style="margin: 8px 0 14px;">
+          I’m strongest where product needs, architecture decisions, and operational reality meet — making systems easier to deliver and easier to run.
+        </p>
+
+        <div class="kpis">
+          {credibility.map((m) => (
+            <div class="kpi">
+              <strong>{m.strong}</strong>
+              <span>{m.span}</span>
             </div>
           ))}
         </div>
+      </section>
 
+      <!-- TIMELINE -->
+      <section class="card" style="margin-top: 18px;">
+        <h2>My path (and why it matters)</h2>
+        <p class="small" style="margin: 8px 0 14px;">
+          I didn’t jump into DevOps randomly — I learned the product and architecture side first, then automated delivery and operations.
+        </p>
+
+        <div style="display:grid; gap:12px;">
+          {timeline.map((t) => (
+            <div class="kpi">
+              <strong>{t.when}</strong>
+              <span>{t.where}</span>
+              <div class="small" style="margin-top: 8px;">{t.detail}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- PROCESS -->
+      <section class="grid" style="margin-top: 18px;">
         <div class="card">
-          <h2>Core focus</h2>
-          <div class="kpis" style="margin-top: 10px;">
-            {focusAreas.map((x) => (
+          <h2>How I work</h2>
+          <p class="small" style="margin: 8px 0 14px;">
+            A simple approach that keeps momentum and avoids “big redesign paralysis”.
+          </p>
+
+          <div style="display:grid; gap:10px;">
+            {processSteps.map((p) => (
               <div class="kpi">
-                <strong>{x.k}</strong>
-                <span>{x.v}</span>
+                <strong>{p.t}</strong>
+                <span>{p.d}</span>
               </div>
             ))}
           </div>
+        </div>
 
-          <div style="margin-top: 14px;" class="small">
+        <div class="card">
+          <h2>Areas I enjoy</h2>
+          <ul class="list" style="margin-top: 10px;">
+            <li>Workflow digitalization: structure, hierarchy, traceability</li>
+            <li>Architecture: turning requirements into clear solution plans</li>
+            <li>Delivery: CI/CD and Git standardization across teams</li>
+            <li>Ops: monitoring and automation that reduces firefighting</li>
+            <li>Kubernetes: GitOps deployments with FluxCD</li>
+          </ul>
+
+          <div style="margin-top: 14px;">
             <div class="badge">Keywords</div>
             <p class="small" style="margin: 10px 0 0;">
-              Puppet · Terraform · GitHub Actions · Zabbix · Windows Services · Proxies · F5 · AWS KMS · Encryption SDK
+              Spring Boot · PowerShell · Puppet · GitHub Actions · Zabbix · Windows · SQL Server · Kubernetes · FluxCD
             </p>
           </div>
         </div>
       </section>
 
-      <section class="card" style="margin-top: 18px;">
-        <h2>Quick bio</h2>
-        <p class="small" style="margin: 0;">
-          DevOps Engineer at Euronet (Kansas, US). Previously Web Architect / Tech Lead (Applaudo).
-          Also worked as a Senior Java Consultant (Spring Boot, AWS/GCP, Terraform, Salesforce integrations).
+      <!-- WORK -->
+      <section id="work" class="card" style="margin-top: 18px;">
+        <h2>Selected work</h2>
+        <p class="small" style="margin: 8px 0 14px;">
+          These are representative snapshots. If you want a deeper case-study version, I can expand each into problem → approach → outcome.
         </p>
+
+        <div style="display:grid; gap:12px;">
+          {caseStudies.map((c) => (
+            <article class="kpi">
+              <div style="display:flex; gap:12px; align-items:flex-start; flex-wrap:wrap;">
+                <img
+                  src={c.image}
+                  alt={`${c.title} visual`}
+                  loading="lazy"
+                  style="width: 140px; height: 90px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); object-fit: cover;"
+                />
+                <div style="flex: 1; min-width: 240px;">
+                  <strong>{c.title}</strong>
+                  <div class="small" style="margin-top: 6px;">{c.subtitle}</div>
+                </div>
+              </div>
+
+              <ul class="list" style="margin-top: 10px;">
+                {c.bullets.map((b) => <li>{b}</li>)}
+              </ul>
+
+              <div style="margin-top: 12px;">
+                <div class="badge">Outcomes</div>
+                <ul class="list" style="margin-top: 8px;">
+                  {c.outcomes.map((o) => <li>{o}</li>)}
+                </ul>
+              </div>
+
+              <div class="badge" style="margin-top: 12px;">{c.tags}</div>
+            </article>
+          ))}
+        </div>
       </section>
     </main>
 
